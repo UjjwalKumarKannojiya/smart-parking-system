@@ -1,0 +1,209 @@
+# ============================================
+# ENVIRONMENT & SECRETS (CRITICAL - NEVER PUSH)
+# ============================================
+.env
+.env.local
+.env.*.local
+.env.production
+.env.development
+.env.test
+*.pem
+*.key
+*.crt
+secrets.json
+
+# ============================================
+# DEPENDENCIES (Not needed in repo)
+# ============================================
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+.pnpm-store/
+.npm
+.yarn
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# ============================================
+# IDE & EDITOR FILES (Local preferences)
+# ============================================
+.vscode/
+.vscode-insiders/
+.idea/
+.sublime-project
+.sublime-workspace
+*.swp
+*.swo
+*~
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.TemporaryItems
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ============================================
+# BUILD & COMPILATION OUTPUT
+# ============================================
+build/
+dist/
+dist-ssr/
+out/
+.next/
+.vercel/
+.parcel-cache/
+.turbo/
+coverage/
+.nyc_output/
+
+# ============================================
+# LOGS & DEBUG FILES
+# ============================================
+logs/
+log/
+*.log
+npm-debug.log*
+npm-error.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.pnpm-debug.log*
+debug.log
+*.stackdump
+
+# ============================================
+# CACHE FILES
+# ============================================
+.cache/
+.eslintcache
+.stylelintcache
+.next/cache
+.parcel-cache
+.turbo
+jest-cache/
+*.cache
+
+# ============================================
+# TESTING & COVERAGE
+# ============================================
+coverage/
+.coverage
+.coveragerc
+.nyc_output/
+htmlcov/
+*.lcov
+.testcache/
+
+# ============================================
+# TEMPORARY & BACKUP FILES
+# ============================================
+temp/
+tmp/
+*.temp
+*.tmp
+*.bak
+*.backup
+*~
+*.swp
+*.swo
+.#*
+
+# ============================================
+# SYSTEM & OS SPECIFIC FILES
+# ============================================
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+*.exe
+*.dmg
+._.DS_Store
+
+# ============================================
+# RUNTIME ARTIFACTS
+# ============================================
+.env.local.php
+.env.*.php
+.editorconfig
+.prettierignore
+.browserslistrc
+
+# ============================================
+# LOCAL DEVELOPMENT
+# ============================================
+.tern-port
+.vscode-test
+.idea_modules/
+dist_electron/
+electron-builder.yml
+
+# ============================================
+# DATABASE & PERSISTENCE (Local)
+# ============================================
+*.db
+*.sqlite
+*.sqlite3
+dump.rdb
+.mongodb
+mongodb/
+data/
+
+# ============================================
+# DOCKER & CONTAINERS (Local)
+# ============================================
+.docker/
+docker-compose.override.yml
+.dockerignore
+
+# ============================================
+# PACKAGE MANAGER ARTIFACTS
+# ============================================
+*.tgz
+npm-shrinkwrap.json
+.npm/
+.yarn/
+bower_components/
+
+# ============================================
+# MISC DEVELOPMENT FILES
+# ============================================
+.env.defaults
+.env.example.local
+*.orig
+*.rej
+.history/
+.vscode-browse.database
+
+# ============================================
+# VS CODE WORKSPACE
+# ============================================
+*.code-workspace
+settings.json
+keybindings.json
+snippets/
+
+# ============================================
+# EXCEPTION: Keep These Files (Non-sensitive)
+# ============================================
+!.env.example
+!.env.example.local
+!.gitkeep
+!.npmrc.example
+!.prettierrc
+!.eslintignore
+!.editorconfig

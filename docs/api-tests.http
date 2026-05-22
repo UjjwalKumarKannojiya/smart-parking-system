@@ -1,0 +1,127 @@
+### Smart Campus Parking API - Test File
+### Install VS Code extension: humao.rest-client
+### Then click "Send Request" on any endpoint below
+
+@base = http://localhost:5000/api
+@token = PASTE_YOUR_TOKEN_HERE
+
+### ─── Health Check ─────────────────────────────────────────────────────
+GET {{base}}/health
+
+### ─── AUTH ──────────────────────────────────────────────────────────────
+
+### Login as Admin
+# @name loginAdmin
+POST {{base}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@campus.edu",
+  "password": "admin123"
+}
+
+### Login as Staff
+POST {{base}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "staff@campus.edu",
+  "password": "staff123"
+}
+
+### Login as User
+POST {{base}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "rahul@campus.edu",
+  "password": "user123"
+}
+
+### Register new user
+POST {{base}}/auth/register
+Content-Type: application/json
+
+{
+  "name": "Test User",
+  "email": "test@campus.edu",
+  "password": "test123",
+  "vehicleNumber": "UP32XY9999",
+  "phone": "9999999999"
+}
+
+### Get Current User
+GET {{base}}/auth/me
+Authorization: Bearer {{token}}
+
+### ─── SLOTS ──────────────────────────────────────────────────────────────
+
+### Get all slots
+GET {{base}}/slots
+Authorization: Bearer {{token}}
+
+### Get available slots only
+GET {{base}}/slots/available
+Authorization: Bearer {{token}}
+
+### Filter by zone
+GET {{base}}/slots?zone=A&status=available
+Authorization: Bearer {{token}}
+
+### ─── BOOKINGS ────────────────────────────────────────────────────────────
+
+### Create booking (replace slotId with actual ID from slots)
+POST {{base}}/bookings
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "slotId": "REPLACE_WITH_SLOT_ID",
+  "vehicleNumber": "UP32AB1234",
+  "estimatedDuration": 2
+}
+
+### My bookings
+GET {{base}}/bookings/my
+Authorization: Bearer {{token}}
+
+### Active booking
+GET {{base}}/bookings/active
+Authorization: Bearer {{token}}
+
+### ─── STAFF ───────────────────────────────────────────────────────────────
+
+### Active bookings (Staff/Admin)
+GET {{base}}/staff/active-bookings
+Authorization: Bearer {{token}}
+
+### Search vehicle
+GET {{base}}/staff/search?vehicleNumber=UP32AB1234
+Authorization: Bearer {{token}}
+
+### Check in (replace bookingId)
+POST {{base}}/staff/checkin/BOOKING_ID
+Authorization: Bearer {{token}}
+
+### Check out (replace bookingId)
+POST {{base}}/staff/checkout/BOOKING_ID
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "paymentMethod": "cash"
+}
+
+### ─── ADMIN ───────────────────────────────────────────────────────────────
+
+### Dashboard
+GET {{base}}/admin/dashboard
+Authorization: Bearer {{token}}
+
+### All users
+GET {{base}}/admin/users
+Authorization: Bearer {{token}}
+
+### Revenue (period: week / month / year)
+GET {{base}}/admin/revenue?period=month
+Authorization: Bearer {{token}}

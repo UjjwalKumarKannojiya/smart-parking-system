@@ -1,0 +1,399 @@
+/* ============================================================
+   SMARTPARK — index.css
+   Provides: fonts, reset, scrollbar, animations, and
+   the small set of shared classes used in App.js
+   All component styling lives as inline styles in App.js
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Sora:wght@400;500;600;700&display=swap');
+
+:root {
+  --font-display: 'Fraunces', serif;
+  --font-sans: 'Sora', sans-serif;
+  --bg: #0B1220;
+  --bg-2: #0F172A;
+  --panel: rgba(15, 23, 42, 0.78);
+  --panel-strong: rgba(8, 15, 30, 0.9);
+  --border: rgba(148, 163, 184, 0.16);
+  --text: #F8FAFC;
+  --muted: #94A3B8;
+  --accent: #4F46E5;
+  --accent-2: #22D3EE;
+  --accent-3: #F97316;
+  --success: #22C55E;
+}
+
+html[data-theme="light"] {
+  --bg: #F8FAFC;
+  --bg-2: #EEF2FF;
+  --panel: rgba(255, 255, 255, 0.92);
+  --panel-strong: rgba(255, 255, 255, 0.98);
+  --border: rgba(15, 23, 42, 0.12);
+  --text: #0F172A;
+  --muted: #64748B;
+  --accent: #4F46E5;
+  --accent-2: #06B6D4;
+  --accent-3: #F97316;
+  --success: #16A34A;
+}
+
+/* ─── Reset ──────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+/* ─── Theme shells ──────────────────────────────────────────── */
+.app-shell {
+  background:
+    radial-gradient(1100px 540px at 8% -10%, rgba(79, 70, 229, 0.20), transparent 60%),
+    radial-gradient(900px 640px at 90% 8%, rgba(34, 211, 238, 0.16), transparent 55%),
+    linear-gradient(135deg, var(--bg) 0%, var(--bg-2) 55%, var(--bg) 100%);
+}
+
+.app-main {
+  background: linear-gradient(135deg, var(--bg-2) 0%, var(--bg) 100%);
+}
+
+.sidebar-shell {
+  background:
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 60%, var(--bg) 100%),
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.03) 8px, transparent 8px, transparent 16px);
+}
+
+.login-shell {
+  background:
+    radial-gradient(1100px 540px at 18% -10%, rgba(79, 70, 229, 0.22), transparent 60%),
+    radial-gradient(900px 640px at 82% 8%, rgba(34, 211, 238, 0.18), transparent 55%),
+    linear-gradient(135deg, var(--bg) 0%, var(--bg-2) 55%, var(--bg) 100%);
+}
+
+.page-shell {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px;
+  border-radius: 26px;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)), var(--panel);
+  box-shadow: 0 28px 80px rgba(2, 6, 23, 0.38);
+}
+
+.page-title {
+  font-size: clamp(2.2rem, 1.6rem + 1.6vw, 3rem);
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.page-subtitle {
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+/* ─── Light theme overrides ─────────────────────────────────── */
+html[data-theme="light"] .app-shell {
+  background:
+    radial-gradient(1100px 540px at 8% -10%, rgba(79, 70, 229, 0.12), transparent 60%),
+    radial-gradient(900px 640px at 90% 8%, rgba(34, 211, 238, 0.12), transparent 55%),
+    linear-gradient(135deg, var(--bg) 0%, var(--bg-2) 60%, var(--bg) 100%) !important;
+}
+
+html[data-theme="light"] .app-main {
+  background: linear-gradient(135deg, var(--bg) 0%, var(--bg-2) 100%) !important;
+}
+
+html[data-theme="light"] .sidebar-shell {
+  background:
+    linear-gradient(180deg, #FFFFFF 0%, #F1F5F9 100%) !important;
+  border-right-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+html[data-theme="light"] .login-shell {
+  background:
+    radial-gradient(1100px 540px at 18% -10%, rgba(79, 70, 229, 0.14), transparent 60%),
+    radial-gradient(900px 640px at 82% 8%, rgba(34, 211, 238, 0.12), transparent 55%),
+    linear-gradient(135deg, var(--bg) 0%, var(--bg-2) 60%, var(--bg) 100%) !important;
+}
+
+html[data-theme="light"] .card-modern {
+  background: var(--panel) !important;
+  border-color: var(--border) !important;
+  box-shadow: 0 16px 48px rgba(15, 23, 42, 0.12);
+}
+
+html[data-theme="light"] .text-white { color: var(--text) !important; }
+html[data-theme="light"] .text-slate-300 { color: #475569 !important; }
+html[data-theme="light"] .text-slate-400 { color: #64748B !important; }
+html[data-theme="light"] .text-slate-500 { color: #94A3B8 !important; }
+html[data-theme="light"] .text-blue-300\/70 { color: #64748B !important; }
+
+html[data-theme="light"] .bg-slate-700\/50 { background: rgba(255, 255, 255, 0.90) !important; }
+html[data-theme="light"] .border-slate-600 { border-color: rgba(15, 23, 42, 0.18) !important; }
+html[data-theme="light"] .border-slate-700 { border-color: rgba(15, 23, 42, 0.12) !important; }
+html[data-theme="light"] .border-white\/10 { border-color: rgba(15, 23, 42, 0.10) !important; }
+html[data-theme="light"] .hover\:bg-slate-700\/30:hover { background: rgba(15, 23, 42, 0.04) !important; }
+html[data-theme="light"] .hover\:bg-slate-700\/50:hover { background: rgba(15, 23, 42, 0.06) !important; }
+
+/* ─── Cards ─────────────────────────────────────────────────── */
+.card-modern {
+  position: relative;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: 0 22px 60px rgba(2, 6, 23, 0.32);
+  backdrop-filter: blur(14px);
+}
+
+.card-modern::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  background: linear-gradient(120deg, rgba(255,255,255,0.12), transparent 35%);
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* ─── Custom Scrollbar ───────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #070B14;
+}
+::-webkit-scrollbar-thumb {
+  background: #162035;
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* ─── Login page background effects ─────────────────────────── */
+.login-glow-1 {
+  position: absolute;
+  top: -8%;
+  left: 18%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(59,130,246,0.20) 0%, transparent 70%);
+  pointer-events: none;
+  animation: pulseGlow 7s ease-in-out infinite;
+}
+
+.login-glow-2 {
+  position: absolute;
+  bottom: -8%;
+  right: 12%;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124,58,237,0.15) 0%, transparent 70%);
+  pointer-events: none;
+  animation: pulseGlow 7s ease-in-out infinite 3.5s;
+}
+
+.login-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image:
+    linear-gradient(rgba(255,255,255,1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* ─── Shared input style ─────────────────────────────────────── */
+.sp-input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 11px 14px;
+  font-size: 14px;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #F1F5F9;
+  outline: none;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.sp-input::placeholder {
+  color: #475569;
+}
+
+.sp-input:focus {
+  border-color: rgba(59, 130, 246, 0.6);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+
+/* ─── Duration picker buttons ────────────────────────────────── */
+.dur-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #F1F5F9;
+  font-size: 20px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.dur-btn:hover {
+  background: #3B82F6;
+}
+
+/* ─── Table action button ────────────────────────────────────── */
+.sp-table-btn {
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: transparent;
+  color: #94A3B8;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.sp-table-btn:hover {
+  color: #F1F5F9;
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ─── Toast notification ─────────────────────────────────────── */
+.sp-toast {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 999;
+  padding: 12px 20px;
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  animation: slideInRight 0.28s ease;
+  max-width: 380px;
+}
+
+/* ─── Pulsing status dot ─────────────────────────────────────── */
+.pulse-dot {
+  animation: pulseDot 2s ease-in-out infinite;
+}
+
+/* ─── Loading spinner ────────────────────────────────────────── */
+.sp-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.65s linear infinite;
+  flex-shrink: 0;
+}
+
+/* ─── Modal entry animation ──────────────────────────────────── */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Toast entry animation ──────────────────────────────────── */
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(28px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ─── Background glow pulse ──────────────────────────────────── */
+@keyframes pulseGlow {
+  0%,  100% { opacity: 1;    transform: scale(1); }
+  50%        { opacity: 0.55; transform: scale(1.07); }
+}
+
+/* ─── Status dot pulse ───────────────────────────────────────── */
+@keyframes pulseDot {
+  0%,  100% { opacity: 1;   transform: scale(1); }
+  50%        { opacity: 0.4; transform: scale(0.8); }
+}
+
+/* ─── Spinner ────────────────────────────────────────────────── */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ─── Responsive adjustments ─────────────────────────────────── */
+@media (max-width: 900px) {
+  /* Sidebar narrows on tablet */
+  aside { width: 220px !important; }
+}
+
+@media (max-width: 640px) {
+  /* Stack layout on mobile */
+  .app-mobile-stack {
+    flex-direction: column;
+  }
+  aside {
+    width: 100% !important;
+    height: auto !important;
+    position: static !important;
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255,255,255,0.07) !important;
+  }
+  /* Tighter padding */
+  main > div {
+    padding: 16px !important;
+  }
+  /* 3-col slot grid on mobile */
+  .slot-grid-mobile {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
